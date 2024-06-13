@@ -11,15 +11,14 @@ const client = new Client({
 const app = express();
 const port = 3000;
 app.get('/', (req, res) => {
-  res.send('YaY Your Bot Status Changed✨');
+  res.send('so dexecutors are out.. soo');
 });
 app.listen(port, () => {
-  console.log(`🔗 Listening to Robin NTW : http://localhost:${port}`);
-  console.log(`🔗 Powered By Robinayush`);
+  console.log(`Local Port : http://localhost:${port}`);
 });
 
 
-const statusMessages = ["Helping on Kaz","Discord.gg/qHyZmWYaJF","Kaz","Kaz .gg/qHyZmWYaJF","Join for free items"];
+const statusMessages = ["DExecutors aka Download Executors!];
 
 
 let currentIndex = 0;
@@ -28,9 +27,9 @@ const channelId = '';
 async function login() {
   try {
     await client.login(process.env.TOKEN);
-    console.log(`\x1b[36m%s\x1b[0m`, `|  ✅ Logged in as ${client.user.tag}`);
+    console.log(`\x1b[36m%s\x1b[0m`, `|  User Status Changed For Bot ${client.user.tag}`);
   } catch (error) {
-    console.error('Failed to log in:', error);
+    console.error('Failed To login. Check ENV or check bot Token.:', error);
     process.exit(1);
   }
 }
@@ -43,8 +42,8 @@ function updateStatusAndSendMessages() {
   const nextStatus = statusMessages[(currentIndex + 1) % statusMessages.length];
 
   client.user.setPresence({
-    activities: [{ name: currentStatus, type: ActivityType.Custom}],
-    status: 'dnd',
+    activities: [{ name: currentStatus, type: ActivityType.Playing}],
+    status: 'idle',
   });
 
   
@@ -61,8 +60,8 @@ function updateStatusAndSendMessages() {
 }
 
 client.once('ready', () => {
-  console.log(`\x1b[36m%s\x1b[0m`, `|    ✅ Bot is ready as ${client.user.tag}`);
-  console.log(`\x1b[36m%s\x1b[0m`, `|    💉 Status Changing Code Injected Succesfully`);
+  console.log(`\x1b[36m%s\x1b[0m`, `|    Logged in as ${client.user.tag}`);
+  console.log(`\x1b[36m%s\x1b[0m`, `|    Status is changed.`);
   updateStatusAndSendMessages();
 
   setInterval(() => {
