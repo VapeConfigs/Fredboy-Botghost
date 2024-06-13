@@ -26,7 +26,7 @@ const channelId = '';
 
 async function login() {
   try {
-    await client.login(process.env.TOKEN);
+    await client.login(process.env.BotToken);
     console.log(`\x1b[36m%s\x1b[0m`, `|  User Status Changed For Bot ${client.user.tag}`);
   } catch (error) {
     console.error('Failed To login. Check ENV or check bot Token.:', error);
